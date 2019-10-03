@@ -1,0 +1,6 @@
+{
+    "firstName": "Cornell",
+    "lastName": "McCrainor",
+    "gender": "Male",
+    "phone": "357-418-3788"
+}

@@ -1,0 +1,6 @@
+{
+    "firstName": "Thea",
+    "lastName": "De Gregoli",
+    "gender": "Female",
+    "phone": "849-132-0921"
+}

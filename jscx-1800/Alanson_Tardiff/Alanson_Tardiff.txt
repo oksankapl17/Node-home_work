@@ -1,0 +1,6 @@
+{
+    "firstName": "Alanson",
+    "lastName": "Tardiff",
+    "gender": "Male",
+    "phone": "431-383-1662"
+}

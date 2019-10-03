@@ -1,0 +1,6 @@
+{
+    "firstName": "Amalle",
+    "lastName": "Scarce",
+    "gender": "Female",
+    "phone": "323-937-5490"
+}
