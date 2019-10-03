@@ -7,9 +7,10 @@
 
 const {mkdir, createWriteStream, createReadStream} = require("fs");
 const {promisify} = require("util");
-const makeDirectory = promisify(mkdir);
+
 const DATA = require("./students");
 
+const makeDirectory = promisify(mkdir);
 
 function writeToFile(path, data) {
   createWriteStream(path, 'utf-8').write(data);
