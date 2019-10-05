@@ -26,6 +26,7 @@ const path = require('path');
 const app = express();
 
 const users = [];
+const houses = [];
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -77,6 +78,18 @@ app.get('/house', (req, res) => {
    res.json(searchUser)
  });
 
+ app.post('/house', (req, res) => {
+   const house = req.body;
+   house.house_id = houses.length + 1;
+   houses.push(house);
+   res.redirect(`/house/${house.house_id }`);
+ });
+
+ app.get('/house/:house_id', (req, res) => {
+   const searchHouse = houses.find(val => +req.params.house_id === val.house_id);
+   res.json(searchHouse);
+ });
+
 
  app.all('*', (req, res) =>{
    res.json('Error 404! Page Not Found! ')
@@ -84,3 +97,13 @@ app.get('/house', (req, res) => {
 
 app.listen(3000, () => {});
 
+
+
+/////продовжуємо писати ЛУН.
+// Тепер вам потрібно не тільки зареєструвати юзера, а ще й зробити квартирку.
+// Отже.
+// Маємо пейджу POST /house, в якій є форма створення квартирки (місто, квадратура, ціна, вулиця). В обєкт квартири дописати ID автоматиом (як з юзерами).
+// Пісял свторення потрібно запушити її в масив з квартирками, та перенаправити юзера на сторінку з його щойно створеною квартирою.
+//
+// GET /house/:id.
+// Відображає квартиру з масиву квартир по ID
