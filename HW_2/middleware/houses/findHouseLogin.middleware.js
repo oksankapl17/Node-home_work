@@ -1,6 +1,7 @@
 const { provider } = require('../../database');
 
 module.exports = async (req, res ,next) => {
+
   try {
     const {city, square, price} = req.body;
     const query = `SELECT * FROM house WHERE city = '${city}' and square = '${square}' and price = '${price}'`;

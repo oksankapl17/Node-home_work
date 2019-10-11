@@ -4,4 +4,4 @@ module.exports = userObject => {
   if (!email || !name || !password) {
     throw new Error('User object is not valid')
   }
-}
+};

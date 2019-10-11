@@ -1,15 +1,13 @@
 const {provider} = require('../../dataBase');
 
-module.exports = async (req, res) => {
-  const user = req.body;
-
-  const allUsers =  'SELECT * FROM user';
+  module.exports = async (req, res) => {
 
   try {
+    const allUsers =  'SELECT * FROM user';
     const newVar = await provider.promise().query(allUsers);
     res.json(newVar);
   } catch (e) {
-    res.end('Error whith AllUsers');
+    res.end('Error with AllUsers');
   }
 
 };
