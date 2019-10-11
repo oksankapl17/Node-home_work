@@ -33,16 +33,17 @@ app.get('/house', (req, res) => {
   res.render('house', {layout: false})
 });
 
-app.post('/register', userMiddleware.checkUserValidityMiddleware, user.createUser);
+app.post('/auth/houses', houseMiddleware.findHouseLoginMiddleware, house.loginHouse);
+app.post('/auth/users', userMiddleware.findUserLoginMiddleware, user.loginUser);
+
+app.post('/users', userMiddleware.checkUserValidityMiddleware, user.createUser);
 app.get('/users', user.findAll);
 app.get('/users/:id', userMiddleware.isUserPresentMiddleware, user.getById);
-app.post('/login', userMiddleware.findUserLoginMiddleware, user.loginUser);
 app.patch('/users/:id', userMiddleware.checkUserValidityMiddleware, user.updateUser);
 
-app.post('/registerHouse', houseMiddleware.checkHouseValidityMiddleware, house.createHouse);
+app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.createHouse);
 app.get('/houses', house.findAll);
 app.get('/houses/:id', houseMiddleware.isHousePresentMiddleware, house.getById);
-app.post('/houses', houseMiddleware.findHouseLoginMiddleware, house.loginHouse);
 app.patch('/houses/:id', houseMiddleware.checkHouseValidityMiddleware, house.updateHouse);
 
 app.listen(3000, () => {
