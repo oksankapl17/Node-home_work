@@ -1,6 +1,0 @@
-{
-    "firstName": "Goldina",
-    "lastName": "Worden",
-    "gender": "Female",
-    "phone": "576-875-2579"
-}

@@ -1,6 +1,0 @@
-{
-    "firstName": "Carce",
-    "lastName": "O'Hogertie",
-    "gender": "Male",
-    "phone": "513-716-0555"
-}

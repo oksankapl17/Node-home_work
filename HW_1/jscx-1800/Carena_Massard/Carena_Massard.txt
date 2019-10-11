@@ -1,6 +1,0 @@
-{
-    "firstName": "Carena",
-    "lastName": "Massard",
-    "gender": "Female",
-    "phone": "121-401-3215"
-}

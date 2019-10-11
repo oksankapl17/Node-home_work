@@ -1,6 +1,0 @@
-{
-    "firstName": "Chancey",
-    "lastName": "Arber",
-    "gender": "Male",
-    "phone": "766-834-2594"
-}

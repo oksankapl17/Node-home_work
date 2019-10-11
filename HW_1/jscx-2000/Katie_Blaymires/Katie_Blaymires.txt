@@ -1,6 +1,0 @@
-{
-    "firstName": "Katie",
-    "lastName": "Blaymires",
-    "gender": "Female",
-    "phone": "105-291-8132"
-}

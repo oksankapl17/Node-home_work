@@ -1,6 +1,0 @@
-{
-    "firstName": "Brander",
-    "lastName": "Walliker",
-    "gender": "Male",
-    "phone": "261-817-1880"
-}

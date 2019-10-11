@@ -1,6 +1,0 @@
-{
-    "firstName": "Mordecai",
-    "lastName": "Snodin",
-    "gender": "Male",
-    "phone": "474-770-6077"
-}

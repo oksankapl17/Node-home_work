@@ -1,6 +1,0 @@
-{
-    "firstName": "Carolann",
-    "lastName": "Blanshard",
-    "gender": "Female",
-    "phone": "108-879-3886"
-}

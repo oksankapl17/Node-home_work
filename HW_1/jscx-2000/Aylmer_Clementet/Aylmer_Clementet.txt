@@ -1,6 +1,0 @@
-{
-    "firstName": "Aylmer",
-    "lastName": "Clementet",
-    "gender": "Male",
-    "phone": "528-108-6631"
-}
