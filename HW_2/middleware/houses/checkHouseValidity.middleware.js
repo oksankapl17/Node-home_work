@@ -1,7 +1,6 @@
 const {houseValidator} = require('../../validators');
 
 module.exports = (req, res, next) => {
-
   try {
     const house = req.body;
 

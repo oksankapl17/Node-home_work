@@ -17,8 +17,6 @@ app.set('views', path.join(__dirname, 'static'));
 
 let {user, house} = require('./controllers');
 let {user: userMiddleware, house: houseMiddleware} = require('./middleware');
-let {userValidator} = require('./validators');
-let {provider} = require('./dataBase');
 
 app.get('/', (req, res) => {
   res.render('main', {layout: false})
@@ -33,17 +31,18 @@ app.get('/house', (req, res) => {
   res.render('house', {layout: false})
 });
 
-app.post('/register', userMiddleware.checkUserValidityMiddleware, user.createUser);
-app.get('/users', user.findAll);
+app.post('/auth/users', userMiddleware.findUserLoginMiddleware, user.loginUser);
+
+app.post('/users', userMiddleware.checkUserValidityMiddleware, user.createUser);
+app.get('/users', user.findAllUsers);
 app.get('/users/:id', userMiddleware.isUserPresentMiddleware, user.getById);
-app.post('/login', userMiddleware.findUserLoginMiddleware, user.loginUser);
 app.patch('/users/:id', userMiddleware.checkUserValidityMiddleware, user.updateUser);
 
-app.post('/registerHouse', houseMiddleware.checkHouseValidityMiddleware, house.createHouse);
-app.get('/houses', house.findAll);
+app.post('/houses', houseMiddleware.checkHouseValidityMiddleware, house.createHouse);
+app.get('/houses', house.findAllHouses);
 app.get('/houses/:id', houseMiddleware.isHousePresentMiddleware, house.getById);
-app.post('/houses', houseMiddleware.findHouseLoginMiddleware, house.loginHouse);
 app.patch('/houses/:id', houseMiddleware.checkHouseValidityMiddleware, house.updateHouse);
 
 app.listen(3000, () => {
+  console.log('Listening.....');
 });

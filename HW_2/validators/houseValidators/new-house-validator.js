@@ -1,4 +1,5 @@
 module.exports = houseObject => {
+
   const {city, square, price} = houseObject;
 
   if (!city || !square || !price) {

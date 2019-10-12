@@ -1,6 +1,6 @@
-const { provider } = require('../../database');
+const {provider} = require('../../database');
 
-module.exports = async (req, res ,next) => {
+module.exports = async (req, res, next) => {
   try {
     const {email, password} = req.body;
     const query = `SELECT * FROM USER WHERE email = '${email}' and password = '${password}'`;
@@ -8,7 +8,7 @@ module.exports = async (req, res ,next) => {
     const [UserLogin] = await provider.promise().query(query);
 
     if (!UserLogin.length) {
-      throw new Error('Password is not correct')
+      throw new Error('Password or email is invalid')
     }
 
     req.user = UserLogin;

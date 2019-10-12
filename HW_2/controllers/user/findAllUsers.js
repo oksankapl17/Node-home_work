@@ -1,10 +1,9 @@
 const {provider} = require('../../dataBase');
 
 module.exports = async (req, res) => {
-
   try {
-    const allHouses = 'SELECT * FROM house';
-    const newVar = await provider.promise().query(allHouses);
+    const allUsers = 'SELECT * FROM user';
+    const newVar = await provider.promise().query(allUsers);
 
     res.json(newVar);
   } catch (e) {

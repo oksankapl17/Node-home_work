@@ -1,7 +1,6 @@
-  const {provider} = require('../../dataBase');
+const {provider} = require('../../dataBase');
 
-  module.exports = async (req, res) => {
-
+module.exports = async (req, res) => {
   try {
     const {name, email, password} = req.body;
     const query = `INSERT INTO user (name, email, password) VALUE ('${name}','${email}','${password}')`;
@@ -10,5 +9,4 @@
     throw new Error('Error CreateUser');
   }
   return res.render('register');
-
 };

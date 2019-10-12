@@ -1,7 +1,6 @@
 const {provider} = require('../../dataBase');
 
 module.exports = async (req, res, next) => {
-
   try {
     const {id} = req.params;
     const query = `SELECT * FROM house WHERE id = ${id}`;
@@ -10,6 +9,7 @@ module.exports = async (req, res, next) => {
     if (!isHousePresent.length) {
       throw new Error(`House with ${id} is not present`)
     }
+
     req.house = isHousePresent;
     next();
 

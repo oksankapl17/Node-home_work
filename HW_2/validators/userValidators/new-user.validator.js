@@ -1,4 +1,5 @@
 module.exports = userObject => {
+
   const {email, name, password} = userObject;
 
   if (!email || !name || !password) {

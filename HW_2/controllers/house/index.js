@@ -1,14 +1,11 @@
 const createHouse = require('./createHouse');
-const findAll = require('./findAll');
+const findAllHouses = require('./findAllHouses');
 const getById = require('./getById');
-const loginHouse = require('./loginHouse');
 const updateHouse = require('./updateHouse');
 
 module.exports = {
   createHouse,
-  findAll,
+  findAllHouses,
   getById,
-  loginHouse,
   updateHouse
-
 };
