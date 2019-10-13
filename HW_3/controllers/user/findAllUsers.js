@@ -1,11 +1,11 @@
-const { provider } = require('../../dataBase');
+const dataBase = require('../../dataBase').getInstance();
 
 module.exports = async (req, res) => {
   try {
-    const allUsers = 'SELECT * FROM user';
-    const newVar = await provider.promise().query(allUsers);
+    const UserModel = dataBase.getModel('User');
+    const users = await UserModel.findAll();
 
-    res.json(newVar);
+    res.json(users);
   } catch (e) {
     res.end('Error with AllUsers');
   }

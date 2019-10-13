@@ -1,12 +1,12 @@
-const { provider } = require('../../dataBase');
+const dataBase = require('../../dataBase').getInstance();
 
 module.exports = async (req, res) => {
   try {
-    const allHouses = 'SELECT * FROM house';
-    const newVar = await provider.promise().query(allHouses);
+    const houseModel = dataBase.getModel('House');
+    const houses = await houseModel.findAll();
 
-    res.json(newVar);
+    res.json(houses);
   } catch (e) {
-    res.end('Error with AllUsers');
+    res.end('Error with AllHouses');
   }
 };

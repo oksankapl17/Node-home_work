@@ -1,7 +1,5 @@
-const checkHouseValidityMiddleware = require('./checkHouseValidity.middleware');
-const isHousePresentMiddleware = require('./isHousePresent.moddleware');
+const isHousePresentMiddleware = require('./isHousePresent.middleware');
 
 module.exports = {
-  checkHouseValidityMiddleware,
   isHousePresentMiddleware,
 };
