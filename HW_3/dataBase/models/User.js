@@ -6,8 +6,12 @@ module.exports = (sequelize, DataTypes) => sequelize.define('User', {
   },
   name: {
     type: DataTypes.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true,
+      notNull: {
+        msg: 'Please enter your name',
+      },
     },
   },
   email: {
@@ -23,7 +27,11 @@ module.exports = (sequelize, DataTypes) => sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
-      len: { args: 4, msg: 'Password Should have at least 4 characters' },
+      notEmpty: true,
+      len: {
+        args: [6, 20],
+        msg: 'Password must be between 6 and 20 characters in length.',
+      },
     },
   },
 }, {

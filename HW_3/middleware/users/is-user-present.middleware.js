@@ -9,6 +9,7 @@ module.exports = async (req, res, next) => {
     if (!isUserPresent) {
       throw new Error(`User with ${id} is not present`);
     }
+
     req.user = isUserPresent;
     next();
   } catch (e) {

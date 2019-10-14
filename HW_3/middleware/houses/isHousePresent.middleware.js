@@ -10,6 +10,7 @@ module.exports = async (req, res, next) => {
     if (!isHousePresent) {
       throw new Error(`House with ${id} is not present`);
     }
+
     req.house = isHousePresent;
     next();
   } catch (e) {

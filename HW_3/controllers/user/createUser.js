@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     const UserModel = dataBase.getModel('User');
 
     await UserModel.create(userToCreate);
+
     return res.render('register');
   } catch (e) {
     return res.json(e.message);

@@ -6,6 +6,7 @@ module.exports = async (req, res) => {
     const houseModel = dataBase.getModel('House');
 
     await houseModel.create(houseToCreate);
+
     return res.render('house');
   } catch (e) {
     return res.json(e.message);
