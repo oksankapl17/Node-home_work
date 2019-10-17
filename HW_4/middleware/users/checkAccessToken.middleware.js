@@ -11,6 +11,6 @@ module.exports = (req, res, next) => {
     req.user = userFromToken;
     next();
   } catch (e) {
-    next(new Error(e.message));
+    return res.json(e.message);
   }
 };

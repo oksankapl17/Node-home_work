@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
 
     return res.json('Ok');
   } catch (e) {
-    return res.json(e.message);
+    console.log(e);
+    return res.status(400).end();
   }
 };
