@@ -5,6 +5,7 @@ module.exports = async (req, res, next) => {
     const { id } = req.params;
 
     const isHousePresent = await houseService.findByPk(id);
+
     if (!isHousePresent) {
       throw new Error(`House with ${id} is not present`);
     }

@@ -1,4 +1,5 @@
 const { userService } = require('../../services');
+const { compareIdValidator } = require('../../validator');
 
 module.exports = async (req, res) => {
   try {
@@ -6,9 +7,7 @@ module.exports = async (req, res) => {
     const { id } = req.params;
     const { id: userFromToken } = req.user;
 
-    if (+id !== userFromToken) {
-      throw new Error('Its not your user!');
-    }
+    compareIdValidator(id, userFromToken);
 
     await userService.updateUserByParams({ id }, patchUserObject);
 
