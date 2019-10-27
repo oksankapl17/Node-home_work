@@ -6,3 +6,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./Human"));
 __export(require("./Deputy"));
 __export(require("./Faction"));
+__export(require("./VerhovnaRada"));

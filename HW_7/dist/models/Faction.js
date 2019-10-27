@@ -5,57 +5,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const inquirer_1 = __importDefault(require("inquirer"));
 const Deputy_1 = require("./Deputy");
+const questions_1 = require("../questions");
 class Faction {
     constructor(listOfDeputies) {
+        this.listOfDeputies = [];
         this.listOfDeputies = listOfDeputies;
     }
     async addDeputy() {
-        const questions = [{
-                type: 'number',
-                name: 'weight',
-                message: "Please enter weight of Deputy",
-            }, {
-                type: 'number',
-                name: 'height',
-                message: "Please enter height of Deputy",
-            }, {
-                type: 'input',
-                name: 'surname',
-                message: "Please enter surname of Deputy",
-            }, {
-                type: 'input',
-                name: 'name',
-                message: "Please enter name of Deputy",
-            }, {
-                type: 'number',
-                name: 'age',
-                message: "Please enter age of Deputy",
-            }, {
-                type: 'number',
-                name: 'amountOfBribe',
-                message: "Please enter amount of bribe",
-            }, {
-                type: 'checkbox',
-                name: 'bribeTaker',
-                message: "Please check if Deputy is a bribe-taker",
-            },];
-        const { weight, height, surname, name, age, amountOfBribe, bribeTaker } = await inquirer_1.default.prompt(questions);
+        const { weight, height, surname, name, age, amountOfBribe, bribeTaker } = await inquirer_1.default.prompt(questions_1.factionQuestions);
         const newDeputy = new Deputy_1.Deputy(weight, height, surname, name, age, amountOfBribe, bribeTaker);
         this.listOfDeputies.push(newDeputy);
     }
     async deleteDeputy() {
-        const questions = [{
-                type: 'number',
-                name: 'index',
-                message: "Please enter index of Deputy that you want to delete",
-                validation: (answer) => {
-                    if (answer < 0 || answer > this.listOfDeputies.length) {
-                        return 'Please enter valid index';
-                    }
-                    return true;
-                }
-            }];
-        const { index } = await inquirer_1.default.prompt(questions);
+        const { index } = await inquirer_1.default.prompt(questions_1.factionQuestionsDeleteDeputy(this.listOfDeputies));
         this.listOfDeputies.splice(index, 1);
     }
     deleteAllBribeTakers() {
