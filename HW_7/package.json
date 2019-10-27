@@ -4,8 +4,7 @@
   "description": "Homework 7 Typescript",
   "main": "app.js",
   "scripts": {
-    "build": "tsc",
-    "start": "nodemon dist/app.js"
+    "start": "tsc && node dist/app.js"
   },
   "author": "",
   "license": "ISC",

@@ -1,11 +1,12 @@
 import inquirer from 'inquirer';
 
 const questions = [{
-    type: 'number',
+    type: 'rawlist',
     name: 'selection',
-    message: "1 - Верховна рада\n 2 - Фракція\n 3 - Депутат",
-    validation: (answer: number) => {
-        if (answer < 0 || answer > 3) {
+    message: "Please choose an option:",
+    choices: ["Верховна рада", "Фракція", "Депутат"],
+    validation: (answer: string) => {
+        if (!["Верховна рада", "Фракція", "Депутат"].includes(answer)) {
             return 'Please choose valid option';
         }
         return true
@@ -14,12 +15,19 @@ const questions = [{
 async function start() {
     try {
         const {selection} = await inquirer.prompt(questions);
-        console.log(selection);
-        // switch (selection) {
-        //     case 1:
-        //     case 2:
-        //     case 3:
-
+        switch (selection) {
+            case "Верховна рада":
+                console.log(1);
+                break;
+            case "Фракція":
+                console.log(2);
+                break;
+            case "Депутат":
+                console.log(3);
+                break;
+            default:
+                console.log("default");
+        }
     } catch (e) {
         console.log(e.message);
     }
